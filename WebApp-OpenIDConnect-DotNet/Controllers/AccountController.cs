@@ -31,17 +31,11 @@ namespace WebApp_OpenIDConnect_DotNet.Controllers
     {
         public void SignIn()
         {
-            // Send an OpenID Connect sign-in request.
-            if (!Request.IsAuthenticated)
-            {
-                HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
-            }
+            // TODO: Use OWIN to issue an OpenID Connect Sign In Challenge
         }
         public void SignOut()
         {
-            // Send an OpenID Connect sign-out request.
-            HttpContext.GetOwinContext().Authentication.SignOut(
-                OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
+            // TODO: Use OWIN to issue on OpenID Connect Sign Out Request
         }
 	}
 }
