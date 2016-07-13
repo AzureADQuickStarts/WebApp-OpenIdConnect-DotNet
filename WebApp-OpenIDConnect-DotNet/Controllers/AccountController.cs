@@ -29,19 +29,37 @@ namespace WebApp_OpenIDConnect_DotNet.Controllers
 {
     public class AccountController : Controller
     {
-        public void SignIn()
+        /// <summary>
+        /// Sends an OpenIDConnect Sign-In Request.
+        /// </summary>
+        public void SignIn(string redirectUri)
         {
-            // Send an OpenID Connect sign-in request.
-            if (!Request.IsAuthenticated)
-            {
-                HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
-            }
+            if (redirectUri == null)
+                redirectUri = "/";
+
+            HttpContext.GetOwinContext()
+                .Authentication.Challenge(new AuthenticationProperties {RedirectUri = redirectUri},
+                    OpenIdConnectAuthenticationDefaults.AuthenticationType);
         }
+        
+        /// <summary>
+        /// Signs the user out and clears the cache of access tokens.
+        /// </summary>
         public void SignOut()
         {
-            // Send an OpenID Connect sign-out request.
-            HttpContext.GetOwinContext().Authentication.SignOut(
-                OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
+            // Remove all cache entries for this user and send an OpenID Connect sign-out request.
+            if (Request.IsAuthenticated)
+            {
+                HttpContext.GetOwinContext().Authentication.SignOut(
+                    OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
+            }
         }
-	}
+        
+        public void EndSession()
+        {
+            // If AAD sends a single sign-out message to the app, end the user's session, but don't redirect to AAD for sign out.
+            HttpContext.GetOwinContext().Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
+        }
+    	
+    }
 }
