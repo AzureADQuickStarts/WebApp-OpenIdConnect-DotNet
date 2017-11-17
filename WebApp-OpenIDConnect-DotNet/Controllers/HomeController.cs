@@ -43,6 +43,6 @@ namespace WebApp_OpenIDConnect_DotNet.Controllers
                 OpenIdConnectAuthenticationDefaults.AuthenticationType,
                 CookieAuthenticationDefaults.AuthenticationType);
         }
-        //<SigInAndSignOut>
+        //</SigInAndSignOut>
     }
 }
