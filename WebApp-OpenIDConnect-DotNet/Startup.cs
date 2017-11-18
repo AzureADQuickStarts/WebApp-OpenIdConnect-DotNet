@@ -20,7 +20,7 @@ namespace WebApp_OpenIDConnect_DotNet
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
 
         // RedirectUri is the URL where the user will be redirected to after they sign in
-        string redirectUri = System.Configuration.ConfigurationManager.AppSettings["RedirectUri"];
+        string redirectUrl = System.Configuration.ConfigurationManager.AppSettings["redirectUrl"];
 
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
@@ -43,9 +43,9 @@ namespace WebApp_OpenIDConnect_DotNet
                     // Sets the ClientId, authority, RedirectUri as obtained from web.config
                     ClientId = clientId,
                     Authority = authority,
-                    RedirectUri = redirectUri,
+                    RedirectUri = redirectUrl,
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
-                    PostLogoutRedirectUri = redirectUri,
+                    PostLogoutRedirectUri = redirectUrl,
                     Scope = OpenIdConnectScopes.OpenIdProfile,
                     // ResponseType is set to request the id_token - which contains basic information about the signed-in user
                     ResponseType = OpenIdConnectResponseTypes.IdToken,
