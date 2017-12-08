@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//<AddedDirectives>
+//<AddedNameSpaces>
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
-//</AddedDirectives>
+//</AddedNameSpaces>
 
 namespace WebApp_OpenIDConnect_DotNet.Controllers
 {

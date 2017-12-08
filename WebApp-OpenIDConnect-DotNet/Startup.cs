@@ -1,14 +1,14 @@
-﻿using Microsoft.Owin;
+﻿// <AddedNameSpaces>
+using Microsoft.Owin;
 using Owin;
-// <AddedDirectives>
-using Microsoft.IdentityModel.Protocols;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Microsoft.Owin.Security.Notifications;
+using Microsoft.IdentityModel.Protocols;
 using System;
 using System.Threading.Tasks;
-// </AddedDirectives>
+// </AddedNameSpaces>
 [assembly: OwinStartup(typeof(WebApp_OpenIDConnect_DotNet.Startup))]
 
 namespace WebApp_OpenIDConnect_DotNet
