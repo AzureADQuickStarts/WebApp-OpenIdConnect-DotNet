@@ -9,8 +9,8 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
-
 // </AddedNameSpaces>
+
 [assembly: OwinStartup(typeof(WebApp_OpenIDConnect_DotNet.Startup))]
 
 namespace WebApp_OpenIDConnect_DotNet
