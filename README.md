@@ -1,4 +1,11 @@
 # WebApp-OpenIdConnect-DotNet
+
+> You might also be interested in this sample: https://github.com/azure-samples/ms-identity-aspnetcore-webapp-tutorial/
+>
+> This newer sample takes advantage of the Microsoft identity platform (formerly Azure AD v2.0).
+>
+> While still in public preview, every component is supported in production environments.
+
 A web app that uses OWIN to authenticate users with OpenIdConnect.
 
 ASP.NET Web Server - OpenID Connect
